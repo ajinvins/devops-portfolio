@@ -1,25 +1,20 @@
 
-name: Website CI
+name: DevOps Practice CI
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  validate:
-    name: Validate website
+  test-website:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download repository code
+      - name: Get source code
         uses: actions/checkout@v4
 
-      - name: Check HTML file exists
+      - name: Verify website exists
         run: test -f index.html
 
-      - name: Display success message
-        run: echo "CI passed - website file exists!"
+      - name: Show success
+        run: echo "My second CI pipeline works!"
